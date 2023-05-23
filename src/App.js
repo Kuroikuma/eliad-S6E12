@@ -40,7 +40,7 @@ function App() {
       }
       refContainer.current = 0;
     });
-  }, []);
+  }, [words]);
 
   return (
     <div className="App">
