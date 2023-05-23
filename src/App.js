@@ -26,8 +26,6 @@ function App() {
   const [words, setWords] = useState([]);
   const refContainer = useRef(0);
 
-  refContainer.current
-
   useEffect(() => {
     array.forEach((element) => {
       element.split("").forEach((item) => {
