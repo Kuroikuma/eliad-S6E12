@@ -26,21 +26,21 @@ function App() {
   const [words, setWords] = useState([]);
   const refContainer = useRef(0);
 
-  let counter = refContainer.current
+  refContainer.current
 
   useEffect(() => {
     array.forEach((element) => {
       element.split("").forEach((item) => {
         if (vocales[`${item}`]) {
-          counter = counter + 1;
+            refContainer.current = refContainer.current + 1;
         }
       });
 
-      if (counter > 1) {
+      if (refContainer.current > 1) {
         console.log(words.concat(element));
         setWords((prevState) => [...prevState, element]);
       }
-      counter = 0;
+      refContainer.current = 0;
     });
   }, []);
 
