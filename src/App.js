@@ -37,7 +37,7 @@ function App() {
         console.log(words.concat(element));
         setWords((prevState) => [...prevState, element]);
       }
-
+      // eslint-disable-next-line no-alert
       counter = 0;
     });
   }, []);
