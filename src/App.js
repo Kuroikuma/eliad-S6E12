@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 let array =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.".split(
@@ -21,9 +21,12 @@ let vocales = {
 };
 
 function App() {
-  let counter = 0;
+ 
 
   const [words, setWords] = useState([]);
+  const refContainer = useRef(0);
+
+  let counter = refContainer.current
 
   useEffect(() => {
     array.forEach((element) => {
@@ -37,7 +40,6 @@ function App() {
         console.log(words.concat(element));
         setWords((prevState) => [...prevState, element]);
       }
-      // eslint-disable-next-line no-alert
       counter = 0;
     });
   }, []);
